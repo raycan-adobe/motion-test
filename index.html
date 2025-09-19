@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motion Presets Showcase</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <h1>Motion Presets</h1>
+        <p>Select a preset to preview how the animation feels before applying it to your project.</p>
+      </header>
+
+      <section class="preview" aria-live="polite">
+        <div class="preview-header">
+          <h2 id="preview-title">Pick an animation</h2>
+          <button id="replay" type="button" class="ghost">Replay</button>
+        </div>
+        <p id="preview-description" class="preview-description">Choose a preset from the list to see a full-size demonstration.</p>
+        <div class="stage" role="img" aria-labelledby="preview-title preview-description">
+          <div id="demo-shape" class="demo-shape" tabindex="0"></div>
+        </div>
+      </section>
+
+      <section class="controls">
+        <h2>Animation presets</h2>
+        <p class="controls-intro">Every preset displays a miniature, always-on preview so you can compare their motion at a glance.</p>
+        <form id="preset-form" class="preset-list" aria-label="Animation presets"></form>
+      </section>
+    </main>
+
+    <template id="preset-template">
+      <label class="preset">
+        <input type="radio" name="preset" class="preset-input" />
+        <span class="preset-content">
+          <span class="preset-preview" aria-hidden="true">
+            <span class="preview-shape"></span>
+          </span>
+          <span class="preset-copy">
+            <span class="preset-name"></span>
+            <span class="preset-meta"></span>
+          </span>
+        </span>
+      </label>
+    </template>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
