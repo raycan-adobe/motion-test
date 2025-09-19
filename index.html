@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motion Sketch</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "Inter", "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 240px 1fr 260px;
+        background: radial-gradient(circle at top, #1e1e1e, #0f0f0f 60%);
+        color: #f4f4f4;
+      }
+
+      .panel {
+        padding: 24px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(18, 18, 18, 0.85);
+        backdrop-filter: blur(18px);
+      }
+
+      .panel:last-child {
+        border-right: none;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      h1,
+      h2 {
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #9be7ff;
+        margin: 0 0 8px;
+      }
+
+      h1 {
+        font-size: 1.2rem;
+      }
+
+      .toolbar .shape {
+        padding: 12px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        cursor: grab;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .toolbar .shape:hover {
+        border-color: rgba(155, 231, 255, 0.7);
+        transform: translateY(-2px);
+      }
+
+      .toolbar .shape span {
+        display: block;
+        font-size: 0.85rem;
+        color: rgba(244, 244, 244, 0.8);
+      }
+
+      .canvas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px;
+      }
+
+      .canvas-board {
+        width: min(760px, 75vw);
+        height: min(480px, 60vh);
+        border-radius: 28px;
+        border: 1px dashed rgba(255, 255, 255, 0.12);
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .canvas-board p {
+        margin: 0;
+        color: rgba(244, 244, 244, 0.7);
+        font-size: 0.95rem;
+        letter-spacing: 0.03em;
+      }
+
+      .controls {
+        display: grid;
+        gap: 12px;
+      }
+
+      label {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(244, 244, 244, 0.65);
+      }
+
+      input[type="range"],
+      select,
+      button {
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        color: inherit;
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+
+      button {
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 600;
+        transition: background 0.2s ease, border-color 0.2s ease;
+      }
+
+      button:hover {
+        background: rgba(155, 231, 255, 0.2);
+        border-color: rgba(155, 231, 255, 0.5);
+      }
+
+      @media (max-width: 960px) {
+        body {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto auto;
+        }
+
+        .panel,
+        .canvas {
+          border: none;
+        }
+
+        .panel:last-child {
+          border-left: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="panel toolbar">
+      <h1>Shapes</h1>
+      <div class="shape">
+        ◯
+        <span>Circle</span>
+      </div>
+      <div class="shape">
+        ▭
+        <span>Rectangle</span>
+      </div>
+      <div class="shape">
+        △
+        <span>Triangle</span>
+      </div>
+    </aside>
+
+    <main class="canvas">
+      <section class="canvas-board">
+        <h2>Canvas</h2>
+        <p>Drag shapes here to start your animation.</p>
+      </section>
+    </main>
+
+    <aside class="panel controls">
+      <h2>Animation</h2>
+      <label for="duration">Duration</label>
+      <input type="range" id="duration" min="1" max="10" value="5" />
+
+      <label for="easing">Easing</label>
+      <select id="easing">
+        <option>Linear</option>
+        <option>Ease In</option>
+        <option>Ease Out</option>
+        <option>Ease In Out</option>
+      </select>
+
+      <label for="loop">Loop</label>
+      <select id="loop">
+        <option>Once</option>
+        <option>Ping Pong</option>
+        <option>Infinite</option>
+      </select>
+
+      <button type="button">Preview</button>
+    </aside>
+  </body>
+</html>
