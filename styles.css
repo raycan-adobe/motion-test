@@ -70,11 +70,12 @@ body {
   box-shadow: 0 24px 45px rgba(4, 6, 13, 0.6);
 }
 
+
 .preset__header {
   display: flex;
   gap: 1rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .preset__titles {
@@ -95,12 +96,33 @@ body {
   line-height: 1.4;
 }
 
+
+.preset__body {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  justify-items: center;
+}
+
+@media (min-width: 640px) {
+  .preset__body {
+    grid-template-columns: auto minmax(0, 1fr);
+    justify-items: stretch;
+  }
+}
+
 .preset__preview {
   width: 120px;
   flex: 0 0 120px;
   display: grid;
   place-items: center;
   padding: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .preset__preview {
+    justify-self: center;
+  }
 }
 
 .preset__preview-stage {
@@ -127,6 +149,7 @@ body {
   gap: 0.65rem;
   font-size: 0.9rem;
   color: #cbd5ff;
+  width: 100%;
 }
 
 .preset__control-label {

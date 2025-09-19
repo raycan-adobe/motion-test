@@ -25,25 +25,27 @@
             <h2 class="preset__name"></h2>
             <p class="preset__description"></p>
           </div>
+        </div>
+        <div class="preset__body">
           <div class="preset__preview" aria-hidden="true">
             <div class="preset__preview-stage">
               <div class="preset__preview-shape"></div>
             </div>
           </div>
+          <label class="preset__control">
+            <span class="preset__control-label">Duration</span>
+            <input
+              class="preset__slider"
+              type="range"
+              min="400"
+              max="4000"
+              value="1600"
+              step="100"
+              aria-describedby="duration-help"
+            />
+            <output class="preset__value" aria-live="off">1.6s</output>
+          </label>
         </div>
-        <label class="preset__control">
-          <span class="preset__control-label">Duration</span>
-          <input
-            class="preset__slider"
-            type="range"
-            min="400"
-            max="4000"
-            value="1600"
-            step="100"
-            aria-describedby="duration-help"
-          />
-          <output class="preset__value" aria-live="off">1.6s</output>
-        </label>
       </article>
     </template>
 
