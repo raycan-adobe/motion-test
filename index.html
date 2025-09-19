@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag & Drop Presets Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel">
+        <h1>Drag & Drop Presets</h1>
+        <p>
+          Drag the cards into the canvas and try different presets. Open the
+          browser console to view helpful error messages if something goes wrong.
+        </p>
+        <div class="draggables" aria-label="Draggable cards">
+          <button class="draggable" draggable="true" data-color="#ffb703">
+            Note A
+          </button>
+          <button class="draggable" draggable="true" data-color="#219ebc">
+            Note B
+          </button>
+          <button class="draggable" draggable="true" data-color="#8ecae6">
+            Note C
+          </button>
+        </div>
+        <div class="presets" aria-label="Preset buttons">
+          <h2>Presets</h2>
+          <button class="preset" data-preset="sunset">Sunset</button>
+          <button class="preset" data-preset="forest">Forest</button>
+          <button class="preset" data-preset="ocean">Ocean</button>
+        </div>
+      </section>
+      <section class="canvas" id="drop-zone" aria-label="Drop zone" tabindex="0">
+        <p class="placeholder">Drop cards here</p>
+      </section>
+    </main>
+    <script src="src/app.js" type="module"></script>
+  </body>
+</html>
