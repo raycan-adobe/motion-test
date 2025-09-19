@@ -46,15 +46,22 @@ presets.forEach((preset, index) => {
   const timing = buildTimingOptions(preset, initialDuration);
   let animation = shape.animate(preset.keyframes, timing);
 
-  slider.addEventListener("input", (event) => {
-    const newDuration = clampDuration(event.target.valueAsNumber, Number(slider.min), Number(slider.max));
+  slider.addEventListener("input", () => {
+    const newDuration = clampDuration(
+      slider.valueAsNumber,
+      Number(slider.min),
+      Number(slider.max)
+    );
     valueEl.textContent = formatDuration(newDuration);
 
     if (animation && typeof animation.cancel === "function") {
       animation.cancel();
     }
 
-    animation = shape.animate(preset.keyframes, buildTimingOptions(preset, newDuration));
+    animation = shape.animate(
+      preset.keyframes,
+      buildTimingOptions(preset, newDuration)
+    );
   });
 
   instance.addEventListener("mouseenter", () => {
@@ -70,7 +77,6 @@ presets.forEach((preset, index) => {
 
 function buildTimingOptions(preset, duration) {
   return {
-    duration,
     fill: "both",
     iterations: Infinity,
     direction: "alternate",
