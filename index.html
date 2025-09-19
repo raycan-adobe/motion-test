@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motion Preset Explorer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1>Motion Preset Explorer</h1>
+        <p>
+          Adjust the playback speed of each preset and watch the live preview to
+          get a feel for how the animation behaves.
+        </p>
+      </header>
+      <section id="preset-list" class="preset-list" aria-live="polite"></section>
+    </main>
+
+    <template id="preset-template">
+      <article class="preset" role="group" aria-label="Animation preset">
+        <div class="preset__header">
+          <div class="preset__titles">
+            <h2 class="preset__name"></h2>
+            <p class="preset__description"></p>
+          </div>
+          <div class="preset__preview" aria-hidden="true">
+            <div class="preset__preview-stage">
+              <div class="preset__preview-shape"></div>
+            </div>
+          </div>
+        </div>
+        <label class="preset__control">
+          <span class="preset__control-label">Duration</span>
+          <input
+            class="preset__slider"
+            type="range"
+            min="400"
+            max="4000"
+            value="1600"
+            step="100"
+            aria-describedby="duration-help"
+          />
+          <output class="preset__value" aria-live="off">1.6s</output>
+        </label>
+      </article>
+    </template>
+
+    <p id="duration-help" class="sr-only">
+      Use the range input to change how long it takes to complete one cycle of
+      the animation.
+    </p>
+
+    <script type="module" src="./scripts/app.js"></script>
+  </body>
+</html>
