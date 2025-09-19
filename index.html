@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shape Canvas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="workspace">
+      <aside class="toolbar" aria-label="Shape toolbar">
+        <h1 class="toolbar__title">Shapes</h1>
+        <div class="shape-template shape-template--rectangle" draggable="true" data-shape="rectangle" role="button" tabindex="0" aria-label="Drag to add rectangle"></div>
+        <div class="shape-template shape-template--circle" draggable="true" data-shape="circle" role="button" tabindex="0" aria-label="Drag to add circle"></div>
+        <p class="toolbar__hint">Drag a shape onto the canvas, then drag again to reposition.</p>
+      </aside>
+      <section class="canvas-container">
+        <h2 class="canvas__title">Canvas</h2>
+        <div id="canvas" class="canvas" role="application" aria-label="Shape canvas" tabindex="0"></div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
